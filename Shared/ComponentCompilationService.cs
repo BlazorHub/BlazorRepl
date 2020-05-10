@@ -65,7 +65,7 @@ namespace BlazorFiddlePoC.Shared
             await Task.WhenAll(
                 enumerable.Select(async e =>
                 {
-                    var result = await httpClient.GetAsync("https://localhost:44347/_framework/_bin/" + e + ".dll");
+                    var result = await httpClient.GetAsync("https://blazorrepl.github.io/_framework/_bin/" + e + ".dll");
 
                     result.EnsureSuccessStatusCode();
 
