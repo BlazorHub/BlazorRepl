@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Razor.Language;
-
-namespace BlazorRepl.Shared
+namespace BlazorRepl.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.AspNetCore.Razor.Language;
+
     internal class VirtualRazorProjectFileSystem : RazorProjectFileSystem
     {
         public override IEnumerable<RazorProjectItem> EnumerateItems(string basePath)

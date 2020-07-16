@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BlazorRepl.Client.Components;
-using BlazorRepl.Client.Services;
-using BlazorRepl.Shared;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-
-namespace BlazorRepl.Client.Pages
+﻿namespace BlazorRepl.Client.Pages
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using BlazorRepl.Client.Components;
+    using BlazorRepl.Client.Services;
+    using BlazorRepl.Core;
+    using Microsoft.AspNetCore.Components;
+    using Microsoft.JSInterop;
+
     public partial class Repl
     {
         private const string BasicUserComponentCodePrefix =
@@ -24,6 +24,8 @@ namespace BlazorRepl.Client.Pages
 @using Microsoft.JSInterop
 ";
 
+        private DotNetObjectReference<Repl> dotNetInstance;
+
         [Inject]
         public ComponentCompilationService CompilationService { get; set; }
 
@@ -33,9 +35,9 @@ namespace BlazorRepl.Client.Pages
         [Parameter]
         public int? DemoId { get; set; }
 
-        public string DemoCode { get; set; }
-
         public CodeEditor CodeEditor { get; set; }
+
+        public string DemoCode { get; set; }
 
         public string Preset { get; set; } = "basic";
 
@@ -89,15 +91,25 @@ namespace BlazorRepl.Client.Pages
             }
         }
 
+        [JSInvokable]
+        public async Task OnCompileEvent()
+        {
+            await this.Compile();
+            this.StateHasChanged();
+        }
+
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
+                this.dotNetInstance = DotNetObjectReference.Create(this);
+
                 await this.JsRuntime.InvokeVoidAsync(
                     "window.App.initRepl",
                     "user-code-editor-container",
                     "user-page-window-container",
-                    "user-code-editor");
+                    "user-code-editor",
+                    this.dotNetInstance);
             }
 
             await base.OnAfterRenderAsync(firstRender);

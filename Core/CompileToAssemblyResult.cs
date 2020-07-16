@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.CodeAnalysis;
-
-namespace BlazorRepl.Shared
+﻿namespace BlazorRepl.Core
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Microsoft.CodeAnalysis;
+
     public class CompileToAssemblyResult
     {
         public CompileToAssemblyResult()

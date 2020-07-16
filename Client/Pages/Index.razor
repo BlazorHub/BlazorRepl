@@ -3,14 +3,27 @@
 @layout MainLayout
 
 <div id="unapp-page">
+    @*Mobile Nav*@
+    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-white"><i></i></a>
+    <div id="colorlib-offcanvas">
+        <ul>
+            <li><a href="/" class="mobile-nav-link">Home</a></li>
+            <li><a href="/repl" class="mobile-nav-link">REPL</a></li>
+            <li class="active"><a class="mobile-nav-link" href="/getting-started">Getting Started</a></li>
+            <li><a href="https://github.com/BlazorRepl/BlazorRepl" target="_blank" class="mobile-nav-link">Source Code</a></li>
+            @*<li><a href="contact.html">Contact</a></li>*@
+        </ul>
+    </div>
+
+    @*Desktop Nav*@
     <nav class="colorlib-nav" role="navigation">
         <div class="top-menu">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2">
-                        <div id="colorlib-logo"><a href="/">Blazor REPL</a></div>
+                    <div class="col-md-3">
+                        <div id="colorlib-logo"><a href="/" class="blazor-logo-wrapper"> <img src="img/blazor-repl-logo-white.png" alt="Blazor REPL Logo" class="blazor-logo"/>Blazor REPL</a></div>
                     </div>
-                    <div class="col-md-10 text-right menu-1">
+                    <div class="col-md-9 text-right menu-1">
                         <ul>
                             <li class="active"><a href="/">Home</a></li>
                             <li><a href="/repl">REPL</a></li>
@@ -154,8 +167,16 @@
                             </p>
                             <p>
                                 <ul class="colorlib-social-icons">
-                                    <li><a href="https://github.com/KristianMariyanov"><i class="icon-github"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/in/kristian-mariyanov/"><i class="icon-linkedin"></i></a></li>
+                                    <li>
+                                        <a href="https://github.com/KristianMariyanov" target="_blank">
+                                            <i class="icon-github"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/kristian-mariyanov" target="_blank">
+                                            <i class="icon-linkedin"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </p>
                         </div>
@@ -172,8 +193,16 @@
                             </p>
                             <p>
                                 <ul class="colorlib-social-icons">
-                                    <li><a href="https://github.com/vladislav-karamfilov"><i class="icon-github"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/in/vladislav-karamfilov/"><i class="icon-linkedin"></i></a></li>
+                                    <li>
+                                        <a href="https://github.com/vladislav-karamfilov" target="_blank">
+                                            <i class="icon-github"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/vladislav-karamfilov" target="_blank">
+                                            <i class="icon-linkedin"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </p>
                         </div>
